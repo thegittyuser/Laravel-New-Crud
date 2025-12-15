@@ -8,7 +8,7 @@
 
 <body>
 
-    <form action="{{ route('doregister') }}" method="POST">
+    <form action="{{ route(name: 'doregister') }}" method="POST">
         @csrf
 
         <label for="username">Username: </label>
