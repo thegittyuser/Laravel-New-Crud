@@ -63,4 +63,10 @@ class authController extends Controller
         Auth::logout();
         return redirect()->route("login");
     }
+
+    public function showUsers()
+    {
+        $users = authUser::all();
+        return view("auth.showusers", compact('users'));
+    }
 }

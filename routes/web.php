@@ -19,3 +19,5 @@ Route::get("/dashboard", function () {
 })->name("dashboard");
 
 Route::post("/logout", [authController::class, 'logOut'])->name('logout');
+
+Route::get("/users", [authController::class, 'showUsers'])->name('showusers');
