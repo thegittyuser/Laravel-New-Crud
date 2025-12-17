@@ -69,4 +69,13 @@ class authController extends Controller
         $users = authUser::all();
         return view("auth.showusers", compact('users'));
     }
+
+    public function update()
+    {
+        return view("auth.update");
+    }
+    public function doUpdate()
+    {
+
+    }
 }
