@@ -22,6 +22,6 @@ Route::post("/logout", [authController::class, 'logOut'])->name('logout');
 
 Route::get("/users", [authController::class, 'showUsers'])->name('showusers');
 
-Route::get("/update", [authController::class, 'update'])->name('update');
+Route::get("/update/{id}", [authController::class, 'update'])->name('update');
 
-Route::put("/doupdate", [authController::class, 'doUpdate'])->name('doupdate');
+Route::put("/doupdate/{id}", [authController::class, 'doUpdate'])->name('doupdate');

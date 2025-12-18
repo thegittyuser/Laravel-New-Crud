@@ -70,12 +70,34 @@ class authController extends Controller
         return view("auth.showusers", compact('users'));
     }
 
-    public function update()
+    public function update($id)
     {
-        return view("auth.update");
+        $user_id = authUser::findOrFail($id);
+        return view("auth.update", compact('user_id'));
     }
-    public function doUpdate()
+    public function doUpdate(Request $request, $id)
     {
+        $request->validate([
+            'username' => 'required',
+            'email' => 'required|email|',
+            'password' => 'required',
+            'phone' => 'required',
+        ]);
+
+        $user_id = authUser::findOrFail($id);
+
+        $user_id->username = $request->username;
+        $user_id->email = $request->email;
+        $user_id->password = $request->password;
+        $user_id->phone = $request->phone;
+
+        if ($request->filled('password')) {
+            $user_id->password = Hash::make($request->password);
+        }
+
+        $user_id->save();
+
+        return redirect()->route('showusers');
 
     }
 }

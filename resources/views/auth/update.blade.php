@@ -8,7 +8,7 @@
 
 <body>
 
-    <form action="{{ route(name: 'doupdate') }}" method="POST" autocomplete="off">
+    <form action="{{ route('doupdate', $user_id->id) }}" method="POST" autocomplete="off">
         @csrf
         @method('PUT')
         <label for="username">Username: </label>

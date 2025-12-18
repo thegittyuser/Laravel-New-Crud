@@ -22,7 +22,7 @@
                         <td>{{ $user->email }}</td>
                         <td>{{ $user->password }}</td>
                         <td>{{ $user->phone }}</td>
-                        <td><a href="#">Edit Record</a></td>
+                        <td><a href="{{ route('update', $user->id) }}">Edit Record</a></td>
                         <td><a href="#">Delete Record</a></td>
                     </tr>
                 @endforeach
