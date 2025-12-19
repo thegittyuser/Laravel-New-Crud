@@ -97,7 +97,16 @@ class authController extends Controller
 
         $user_id->save();
 
-        return redirect()->route('showusers');
+        return redirect()->route('showusers')->with('success', 'user updated successfully');
+
+    }
+
+    public function delete($id)
+    {
+        $user = authUser::findOrFail($id);
+        $user->delete();
+
+        return redirect()->route('showusers')->with('success', 'user is deleted');
 
     }
 }

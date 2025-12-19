@@ -25,3 +25,5 @@ Route::get("/users", [authController::class, 'showUsers'])->name('showusers');
 Route::get("/update/{id}", [authController::class, 'update'])->name('update');
 
 Route::put("/doupdate/{id}", [authController::class, 'doUpdate'])->name('doupdate');
+
+Route::delete("/delete/{id}", [authController::class, 'delete'])->name('delete');
